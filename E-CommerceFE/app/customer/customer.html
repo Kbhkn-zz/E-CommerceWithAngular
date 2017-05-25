@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>New Customer</strong>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form name="customerForm" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Name</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" ng-model="customer.name" name="name"  required="required"/>
+                            <span style="color:red" ng-show="customerForm.name.$error.required">This field can't blank!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Surname</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" ng-model="customer.surname" name="surname" required="required"/>
+                            <span style="color:red" ng-show="customerForm.surname.$error.required">This field can't blank!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email Address</label>
+                        <div class="col-lg-5">
+                            <input type="email" class="form-control" ng-model="customer.email" name="email" required="required"/>
+                            <span style="color:red" ng-show="customerForm.email.$invalid">Incorrent Format!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label"></label>
+                        <div class="col-lg-2">
+                            <button ng-disabled="customerForm.$invalid" ng-click="customer.id < 1 ? addCustomer() : updateCustomer()"
+                                    ng-class="customer.id < 1 ? 'btn btn-success btn-sm' : 'btn btn-primary btn-sm'">
+                                {{customer.id < 1 ? 'Add' : 'Update'}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12" ng-if="customers.length > 0">
+        <div class="page-header" style="margin-top: -8px">
+            <h1 style="color: #000000;">Customers</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <table ng-table="tableParams" class="table table-striped table-bordered">
+                    <tr ng-repeat="c in customers | orderBy: 'name'">
+                        <td title="'No'" filter="{ id: 'number'}" sortable="'id'">{{c.id}}</td>
+                        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">{{c.name}}</td>
+                        <td title="'Surname'" filter="{ surname: 'text'}" sortable="'surname'">{{c.surname | uppercase}}</td>
+                        <td title="'Email Address'" filter="{ email: 'text'}" sortable="'email'">{{c.email}}</td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="deleteCustomer(c)">Delete</button>
+                            <button class="btn btn-primary" ng-click="editUser(c)">Update</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

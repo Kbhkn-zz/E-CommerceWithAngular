@@ -1,0 +1,15 @@
+{
+  "name": "e-commerce-fe",
+  "description": "E-Commerce Front-End",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Kbhkn/E-CommerceWithAngular/",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.6.4",
+    "angular-route": "~1.6.4",
+    "angular-loader": "~1.6.4",
+    "bootstrap": "~3.3.6",
+    "ng-table-bundle": "~3.0.1"
+  }
+}

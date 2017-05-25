@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="en" ng-app="ecommerce" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html lang="en" ng-app="ecommerce" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html lang="en" ng-app="ecommerce" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="ecommerce" class="no-js"> <!--<![endif]-->
+<head>
+    <title>E-CommerceFE</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="E-Commerce Front-End ClientSide">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/bower_components/ng-table-bundle/ng-table.min.css">
+    <link rel="stylesheet" href="static/css/sb-admin-2.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container" style="padding: 11px;">
+    <section>
+        <ul class="nav nav-pills" ng-controller="MainController">
+            <li ng-class="{active: isActive('/app/customer')}"><a href="#!/app/customer" class="btn btn-sm">Customers</a></li>
+            <li ng-class="{active: isActive('/app/product')}"><a href="#!/app/product" class="btn btn-sm">Products</a></li>
+            <li ng-class="{active: isActive('/app/order')}"><a href="#!/app/order" class="btn btn-sm">Orders</a></li>
+        </ul>
+    </section>
+    <br/>
+    <ng-view></ng-view>
+</div>
+
+<script src="static/bower_components/angular/angular.js"></script>
+<script src="static/bower_components/angular-route/angular-route.js"></script>
+<script src="static/bower_components/ng-table-bundle/ng-table.min.js"></script>
+<script src="app.js"></script>
+
+<script src="customer/customer.js"></script>
+<script src="customer/customer-controller.js"></script>
+<script src="customer/customer-service.js"></script>
+
+<script src="product/product.js"></script>
+<script src="product/product-controller.js"></script>
+<script src="product/product-service.js"></script>
+
+<script src="order/order.js"></script>
+<script src="order/order-controller.js"></script>
+<script src="order/order-service.js"></script>
+</body>
+</html>
